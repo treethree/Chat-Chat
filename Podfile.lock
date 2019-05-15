@@ -1,0 +1,16 @@
+PODS:
+  - ViewAnimator (2.5.1)
+
+DEPENDENCIES:
+  - ViewAnimator
+
+SPEC REPOS:
+  https://github.com/cocoapods/specs.git:
+    - ViewAnimator
+
+SPEC CHECKSUMS:
+  ViewAnimator: 173932c659a43c5a15c665878750d92801ae2cf1
+
+PODFILE CHECKSUM: 9ed5f463c69d9f98247490ed626114c155d2f00f
+
+COCOAPODS: 1.6.1
