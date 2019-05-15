@@ -7,11 +7,23 @@ class ColorPickerViewController: UICollectionViewController
     let columnCount = 2
     let margin : CGFloat = 10
     
+    @IBOutlet var colView: UICollectionView!
+    
     // MARK: View lifecycle
     override func viewDidLoad() {
         
         super.viewDidLoad()
         ViewHelper.setCollectionViewLayout(collectionView: collectionView, margin: margin)
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        let randomAnimation = AnimationType.random()
+
+        colView.performBatchUpdates({
+            UIView.animate(views: colView.visibleCells,
+                           animations: [randomAnimation],
+                           duration: 0.5)
+        }, completion: nil)
     }
 }
 
@@ -26,9 +38,6 @@ extension ColorPickerViewController {
     override func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: reuseIdentifier, for: indexPath as IndexPath)
-        let fromAnimation = AnimationType.random()
-
-        UIView.animate(views: collectionView.visibleCells, animations: [fromAnimation])
         cell.backgroundColor = Constants.colors[indexPath.item]
         
         return cell

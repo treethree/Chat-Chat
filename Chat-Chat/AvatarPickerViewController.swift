@@ -14,9 +14,16 @@ class AvatarPickerViewController: UICollectionViewController
     override func viewDidLoad() {
         
         super.viewDidLoad()
-        
         ViewHelper.setCollectionViewLayout(collectionView: collectionView, margin: margin)
-        
+    }
+    override func viewWillAppear(_ animated: Bool) {
+        colView?.reloadData()
+        let rotateAnimation = AnimationType.rotate(angle: CGFloat.pi/6)
+        colView.performBatchUpdates({
+            UIView.animate(views: colView.visibleCells,
+                                 animations: [rotateAnimation],
+                                 duration: 0.5)
+        }, completion: nil)
     }
     
 }
@@ -36,11 +43,11 @@ extension AvatarPickerViewController {
         
         cell.avatarImageView.image = UIImage(named: String(format: "%@%d", Constants.kAvatarImagePrefix, indexPath.item + 1))
         
-        let zoomAnimation = AnimationType.zoom(scale: 0.2)
-        let rotateAnimation = AnimationType.rotate(angle: CGFloat.pi/6)
-        UIView.animate(views: collectionView.visibleCells,
-                   animations: [zoomAnimation, rotateAnimation],
-                   duration: 0.5)
+//        let zoomAnimation = AnimationType.zoom(scale: 0.2)
+//        let rotateAnimation = AnimationType.rotate(angle: CGFloat.pi/6)
+//        UIView.animate(views: collectionView.visibleCells,
+//                   animations: [zoomAnimation, rotateAnimation],
+//                   duration: 0.5)
         return cell
     }
 }

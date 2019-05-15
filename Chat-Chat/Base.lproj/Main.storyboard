@@ -38,6 +38,9 @@
                             <outlet property="delegate" destination="Bet-em-MjF" id="fK1-Tt-MCC"/>
                         </connections>
                     </collectionView>
+                    <connections>
+                        <outlet property="colView" destination="NBD-Sy-84C" id="hpo-zJ-7HV"/>
+                    </connections>
                 </collectionViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="CKh-Sk-PK7" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>

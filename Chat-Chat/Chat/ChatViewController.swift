@@ -244,7 +244,7 @@ extension ChatViewController : CBPeripheralDelegate {
                     peripheral.writeValue(data!, for: characteristic, type: CBCharacteristicWriteType.withResponse)
                     appendMessageToChat(message: Message(text: messageText, isSent: true))
                     // MARK: - SHOULD CLEAR FIELD ON SEND
-                    messageTextField.text = ""
+                    //messageTextField.text = ""
                 }
             }
         }
